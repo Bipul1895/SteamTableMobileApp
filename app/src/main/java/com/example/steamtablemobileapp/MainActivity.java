@@ -21,7 +21,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     private List<Water> waterDataList= new ArrayList<>();
     private Spinner spinner1;
@@ -50,13 +50,52 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(this,R.array.spinner1,android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
-        spinner1.setOnItemSelectedListener(this);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i==0){
+                    field1=getString(R.string.pressure);
+                }
+                else if(i==1){
+                    field1=getString(R.string.temperature);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         //Adapter for spinner2
         ArrayAdapter<CharSequence> adapter2=ArrayAdapter.createFromResource(this,R.array.spinner2,android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(i==0){
+                    field2=getString(R.string.enthalpy);
+                }
+                else if(i==1){
+                    field2=getString(R.string.entropy);
+                }
+                else if(i==2){
+                    field2=getString(R.string.quality);
+                }
+                else if(i==3){
+                    field2=getString(R.string.specific_volume);
+                }
+                else if(i==4){
+                    field2=getString(R.string.internal_energy);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         etField1=findViewById(R.id.press_temp_et);
         etField2=findViewById(R.id.second_property_et);
@@ -95,6 +134,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     private WaterState solveForWaterProperties(Water foundRow, String field2, double valField2) {
+
+        Log.d("2nd property : ", field2);
+
         double quality;
 
         if(field2.equals(R.string.enthalpy)){
@@ -259,20 +301,5 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.d("onitemSelected : " , "method called");
-        String text=adapterView.getItemAtPosition(i).toString();//name of property
-        if(view == spinner1){
-            field1=text;
-        }
-        else if(view == spinner2){
-            field2=text;
-        }
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }
