@@ -16,14 +16,27 @@
         android:layout_marginRight="@dimen/right"
         android:layout_marginBottom="10dp"></Spinner>
 
-    <EditText
-        android:id="@+id/press_temp_et"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginBottom="10dp"
-        android:hint="Enter the value"
-        android:inputType="numberDecimal"/>
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/press_temp_et"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_marginBottom="10dp"
+            android:hint="Enter the value"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bar"
+            android:textColor="#000000"></TextView>
+
+    </LinearLayout>
 
     <Spinner
         android:id="@+id/property2_spinner"
@@ -34,14 +47,27 @@
         android:layout_marginRight="@dimen/right"
         android:layout_marginBottom="10dp"></Spinner>
 
-    <EditText
-        android:id="@+id/second_property_et"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginBottom="10dp"
-        android:hint="Enter the value"
-        android:inputType="numberDecimal"/>
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/second_property_et"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/left"
+            android:hint="Enter the value"
+            android:inputType="numberDecimal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KJ/Kg"
+            android:textColor="#000000"></TextView>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/submit_btn"
