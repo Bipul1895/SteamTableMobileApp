@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SteamTableMobileApp</string>
+    <string-array name="spinner1">
+        <item>Pressure</item>
+        <item>Temperature</item>
+    </string-array>
+
+    <string-array name="spinner2">
+        <item>Enthalpy</item>
+        <item>Entropy</item>
+        <item>Quality</item>
+        <item>Specific volume</item>
+        <item>Internal energy</item>
+    </string-array>
+
+</resources>
